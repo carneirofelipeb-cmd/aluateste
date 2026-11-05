@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aluá Semijoias</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--tile:#f1f1f1;--ink:#111;--mute:#666;--gold:#b9735a;--metal:#9b9b9b;--band:#ebc5ae;--line:#e6e6e6;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161616;--tile:#222;--ink:#f3f3f3;--mute:#a8a8a8;--gold:#e49a80;--metal:#bdbdbd;--band:#4a3328;--line:#333}}
+:root[data-theme="dark"]{--bg:#161616;--tile:#222;--ink:#f3f3f3;--mute:#a8a8a8;--gold:#e49a80;--metal:#bdbdbd;--band:#4a3328;--line:#333}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:300 16px/1.6 Jost,system-ui,sans-serif}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:400;line-height:1.15}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.top{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:18px 3vw 0}
+.top .l{font-size:14px;text-decoration:underline;text-underline-offset:3px}
+.top .r{justify-self:end}
+.star{width:.7em;height:.7em;color:var(--gold);vertical-align:.02em}.logo{font-family:"Cormorant Garamond",serif;font-size:clamp(30px,4vw,46px);letter-spacing:.2em;font-weight:500;padding-left:.2em}
+svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.4;vertical-align:middle}
+header{position:relative;z-index:30;background:var(--bg)}
+nav{display:flex;justify-content:center;flex-wrap:wrap;gap:0 clamp(18px,3vw,44px);padding:14px 3vw 0;font-size:13px;letter-spacing:.3em;text-transform:uppercase}
+.has>a{display:block;padding:4px 0 18px;border-bottom:2px solid transparent}
+.has.open>a{color:var(--gold);border-bottom-color:var(--gold)}
+@media(hover:hover) and (pointer:fine){.has:hover>a,.has:focus-within>a{color:var(--gold);border-bottom-color:var(--gold)}}
+.mega{display:none;position:absolute;left:0;right:0;top:100%;background:var(--bg);border-top:1px solid var(--line);box-shadow:0 18px 30px rgba(0,0,0,.08);padding:36px 3vw 44px;letter-spacing:.2em;text-transform:none;font-size:14px}
+.has.open>.mega{display:block}
+@media(hover:hover) and (pointer:fine){.has:hover>.mega,.has:focus-within>.mega{display:block}}
+.mg{display:flex;gap:4vw;margin:0 auto;flex-wrap:wrap;align-items:flex-start}.mg>div{min-width:150px}
+.mg h4{font:500 13px Jost,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);margin-bottom:22px}
+.mg>div a{display:flex;align-items:center;gap:12px;padding:9px 0;color:var(--ink)}.mg a.all{color:var(--gold);text-decoration:underline;text-underline-offset:4px;margin-top:8px}.sw{width:18px;height:18px;border-radius:50%;display:inline-block;flex:none}.sw.g{background:radial-gradient(circle at 35% 30%,#f6e39a,#c9a23f)}.sw.s{background:radial-gradient(circle at 35% 30%,#fff,#9b9b9b)}.sw.r{background:radial-gradient(circle at 35% 30%,#f3cdbd,#b9735a)}.sw.d{background:linear-gradient(135deg,#d9d9d9 50%,#d4b05c 50%)}
+.mg>div a:hover{color:var(--gold)}
+.feat{margin-left:auto;width:min(260px,100%);display:block!important;padding:0!important;letter-spacing:0}
+.feat .ph{display:grid;place-items:center;aspect-ratio:4/3;background:var(--tile);margin-bottom:10px}
+.feat .ph i{width:42%;aspect-ratio:1;border-radius:50%;border:3px solid var(--metal)}
+.feat b{display:block;font:500 20px "Cormorant Garamond",serif;text-decoration:underline;text-underline-offset:4px;letter-spacing:.06em}
+.feat small{color:var(--mute);font-size:13px}
+.band{background:var(--band);display:flex;justify-content:center;gap:6vw;flex-wrap:wrap;padding:14px 4vw;font-family:"Cormorant Garamond",serif;font-size:clamp(20px,2.4vw,30px);letter-spacing:.18em;text-transform:uppercase;text-align:center}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:68vh;background:var(--tile)}
+.hero .art{display:grid;place-items:center;padding:6vw}
+.hero .txt{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:6vw}
+.hero h1{font-size:clamp(40px,5.4vw,78px);letter-spacing:.04em;text-transform:uppercase}
+.hero a{margin-top:34px;font-size:15px;letter-spacing:.14em;text-transform:uppercase;border-bottom:1.5px solid var(--ink);padding-bottom:3px}
+.strip{display:flex;justify-content:space-around;flex-wrap:wrap;gap:12px 32px;padding:30px 4vw;border-bottom:1px solid var(--line);font-size:15px;color:var(--mute);text-align:center}
+.strip b{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:22px;color:var(--ink);margin-right:8px}
+section{padding:7vw 0 3vw}
+h2{font-size:clamp(28px,3.2vw,44px);letter-spacing:.14em;text-transform:uppercase;padding:0 5vw;margin-bottom:32px}
+.rail{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 5vw 10px}
+.rail>a{flex:0 0 min(360px,72vw);scroll-snap-align:start}
+.pic{aspect-ratio:4/5;background:var(--tile);display:grid;place-items:center;margin-bottom:16px;transition:outline-color .2s;outline:1px solid transparent}
+a:hover .pic{outline-color:var(--gold)}
+.pic i{display:block;width:42%;aspect-ratio:1;border-radius:50%;border:3px solid var(--metal)}
+.pic i.d{border-radius:0;transform:rotate(45deg);width:28%}
+.pic i.l{border:0;border-top:3px solid var(--metal);border-radius:0;width:50%;aspect-ratio:auto;height:0;box-shadow:0 14px 0 -1px var(--metal),0 28px 0 -2px var(--metal)}
+.rail h3{font-size:22px;letter-spacing:.16em;text-transform:uppercase;font-weight:500}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:40px 26px;padding:0 5vw}
+.item{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.item h3{font-size:23px}
+.price{color:var(--gold);white-space:nowrap}
+.desc{color:var(--mute);font-size:14px;margin-bottom:8px}
+.buy{display:block;text-align:center;border:1px solid var(--ink);padding:11px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;transition:.2s}
+.buy:hover{background:var(--ink);color:var(--bg)}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:0 0 0}
+.tiles .pic{aspect-ratio:1/1.1;margin-bottom:22px}
+.tiles h3{font-size:clamp(22px,2.2vw,30px);letter-spacing:.06em;margin-bottom:4px}
+.tiles p{color:var(--mute);font-size:15px}
+.tiles a{padding-bottom:24px}
+.cta{text-align:center;padding:7vw 5vw;background:var(--tile);margin-top:5vw}
+.cta h2{padding:0}
+.cta p{color:var(--mute);margin-bottom:28px}
+.cta a{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:14px 38px;font-size:13px;letter-spacing:.2em;text-transform:uppercase}
+.cta a:hover{background:var(--gold);color:var(--bg)}
+footer{padding:26px 5vw;color:var(--mute);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+@media(max-width:760px){nav{gap:0 18px;font-size:12px;letter-spacing:.2em}.mega{position:static;box-shadow:none;padding:18px 0 22px;flex-basis:100%}.has{display:contents}.has>a{flex:0 0 auto}.feat{display:none}.mg{gap:28px}.hero{grid-template-columns:1fr}.hero .art{padding:56px 6vw 24px}.top{grid-template-columns:1fr auto 1fr}.top .l span{display:none}.tiles{grid-template-columns:1fr}.tiles a{padding-bottom:6px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+.hero{position:relative;overflow:hidden;background:#e9bfc0;color:#2b1f1d;min-height:min(72vh,52vw)}
+.hero .art{padding:0}
+.hero a{border-bottom-color:#2b1f1d}
+@media(max-width:760px){.hero{background:#f0cfcf;min-height:0}.slides{position:relative!important;aspect-ratio:4/3}.slide{background-position:18% center!important}.hero .txt{grid-column:1!important;padding:36px 6vw 44px}}
+
+.shop{padding:34px 5vw 6vw}
+.crumb{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:18px}
+.crumb a:hover{color:var(--gold)}.crumb b{font-weight:400;color:var(--ink)}
+.shop h1{font-size:clamp(34px,4.4vw,60px);letter-spacing:.14em;text-transform:uppercase}
+.count{color:var(--mute);margin:6px 0 26px}
+.chips{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px;margin-bottom:34px}
+.chips a{flex:none;border:1px solid var(--line);padding:9px 18px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;transition:.2s}
+.chips a:hover{border-color:var(--gold);color:var(--gold)}
+.chips a.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.shop .grid{padding:0}
+.empty{color:var(--mute);padding:30px 0}
+.tag{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.has.shut>.mega{display:none!important}
+
+.top .r{position:relative}
+.badge{position:absolute;top:-7px;right:-9px;min-width:18px;height:18px;border-radius:9px;background:var(--gold);color:#fff;font-size:11px;line-height:18px;text-align:center;padding:0 5px;font-weight:400}
+.badge.bump{animation:bump .35s}@keyframes bump{50%{transform:scale(1.35)}}
+button.buy{width:100%;background:transparent;color:inherit;font-family:inherit;cursor:pointer;margin:0}
+.acts{display:grid;gap:8px}
+.buy.solid{background:var(--ink);color:var(--bg)}
+.buy.solid:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+.buy:disabled{opacity:.4;cursor:default}
+.more{text-align:center;margin-top:44px}
+.more a{font-size:13px;letter-spacing:.2em;text-transform:uppercase;border-bottom:1.5px solid var(--ink);padding-bottom:3px}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.42);opacity:0;pointer-events:none;transition:opacity .3s;z-index:55}
+.ov.open{opacity:1;pointer-events:auto}
+.cart{position:fixed;top:0;right:0;height:100%;width:min(430px,100%);background:var(--bg);color:var(--ink);transform:translateX(100%);visibility:hidden;transition:transform .3s,visibility .3s;z-index:60;display:flex;flex-direction:column;box-shadow:-18px 0 40px rgba(0,0,0,.12)}
+.cart.open{transform:none;visibility:visible}
+.cart-h{display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border-bottom:1px solid var(--line)}
+.cart-h h2{padding:0;margin:0;font-size:26px}
+.x{background:none;border:0;color:inherit;font-size:34px;line-height:1;cursor:pointer;padding:0 4px}
+.cart-b{flex:1;overflow-y:auto;padding:8px 24px}
+.ci{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:18px 0;border-bottom:1px solid var(--line)}
+.ci h3{font-size:20px}.ci .u{color:var(--mute);font-size:14px}
+.ci .lt{text-align:right;color:var(--gold)}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);margin-top:6px}
+.qty button{width:34px;height:34px;background:none;border:0;color:inherit;font-size:18px;cursor:pointer}
+.qty span{min-width:28px;text-align:center}
+.rm{background:none;border:0;color:var(--mute);font-size:13px;text-decoration:underline;cursor:pointer;justify-self:end;align-self:end}
+.cart-e{color:var(--mute);text-align:center;padding:60px 10px}
+.cart-f{padding:20px 24px 24px;border-top:1px solid var(--line);display:grid;gap:12px}
+.tot{display:flex;justify-content:space-between;align-items:center;font-size:18px}.tot b{font-weight:400;color:var(--gold);font-family:"Cormorant Garamond",serif;font-size:26px}
+.lnk{background:none;border:0;color:var(--mute);font-size:13px;text-decoration:underline;cursor:pointer}
+.note{font-size:12.5px;color:var(--mute);text-align:center}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,20px);background:var(--ink);color:var(--bg);padding:12px 22px;font-size:14px;letter-spacing:.06em;opacity:0;pointer-events:none;transition:.3s;z-index:70}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media(max-width:760px){.has>a{padding:10px 4px 12px}.mega a{padding:12px 0!important}nav{gap:0 14px}.mega{order:10}}
+a.buy.off{opacity:.4;pointer-events:none}
+.cart-f a.buy{text-align:center}
+:root{--s1:url("imagens/b5d93be78b.jpg");--s2:url("imagens/d66d0cb80f.jpg");--s3:url("imagens/8514d10a5a.jpg");}
+.hero .txt{grid-column:2;position:relative;z-index:2}
+.slides{position:absolute;inset:0;z-index:1;overflow:hidden}
+.slide{position:absolute;inset:0;background-size:cover;background-position:left center;opacity:0;transform:scale(1);transition:opacity 1.1s ease,transform 7s ease-out}
+.slide.on{opacity:1;transform:scale(1.05)}
+.slide:nth-child(1){background-image:var(--s1)}.slide:nth-child(2){background-image:var(--s2)}.slide:nth-child(3){background-image:var(--s3)}
+.sctl{position:absolute;right:3vw;bottom:22px;z-index:3;display:flex;align-items:center;gap:10px}
+.sctl button{width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.72);color:#2b1f1d;font-size:18px;cursor:pointer;display:grid;place-items:center;transition:background .2s}
+.sctl button:hover{background:#fff}
+.dots{display:flex;gap:8px;padding:0 6px}
+.dots button{width:10px;height:10px;padding:0;background:rgba(255,255,255,.7);border:1px solid rgba(43,31,29,.35)}
+.dots button.on{background:#2b1f1d;border-color:#2b1f1d}
+@media(prefers-reduced-motion:reduce){.slide,.slide.on{transition:opacity .01s;transform:none}}
+
+.plink{display:block}
+.pdp{padding:18px 5vw 4vw}
+.pgrid{display:grid;grid-template-columns:88px minmax(0,1fr) minmax(300px,440px);gap:28px;align-items:start;margin-top:22px}
+.thumbs{display:flex;flex-direction:column;gap:12px}
+.th{padding:0;border:1px solid transparent;background:none;cursor:pointer;color:inherit;display:block}
+.th.on{border-color:var(--ink)}
+.th .pic{aspect-ratio:1;margin:0}
+.th img,.pmainw img{width:100%;height:100%;object-fit:cover;display:block}
+.pmainw .pic{aspect-ratio:1/1;margin:0}
+.pmainw{background:var(--tile)}
+.pinfo{display:grid;gap:14px;align-content:start}
+.pcat{font-size:13px;letter-spacing:.18em;text-transform:uppercase;text-decoration:underline;text-underline-offset:4px;color:var(--mute)}
+.pbadges{display:flex;gap:8px;flex-wrap:wrap}
+.pbadges span{background:var(--band);color:var(--gold);font-size:12px;letter-spacing:.18em;text-transform:uppercase;padding:7px 14px}
+.pname{font-size:clamp(26px,2.6vw,36px);letter-spacing:.05em;line-height:1.2}
+.pprice{font:500 34px "Cormorant Garamond",Georgia,serif;margin:2px 0}
+.pmat{color:var(--mute)}
+.qrow{display:flex;align-items:center;gap:14px;margin:4px 0 2px}
+.qrow .qty{margin:0}.qrow small{color:var(--mute);letter-spacing:.14em;text-transform:uppercase;font-size:12px}
+.pbuy{display:grid;gap:10px;margin:6px 0 14px}
+.pbuy .buy{padding:15px}
+.pinfo details{border-top:1px solid var(--line)}
+.pinfo details:last-child{border-bottom:1px solid var(--line)}
+.pinfo summary{list-style:none;cursor:pointer;padding:20px 0;font-size:13px;letter-spacing:.26em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.pinfo summary::-webkit-details-marker{display:none}
+.pinfo summary::after{content:"";width:9px;height:9px;border-right:1.5px solid var(--gold);border-bottom:1.5px solid var(--gold);transform:rotate(45deg);transition:transform .2s;margin-right:4px}
+.pinfo details[open] summary::after{transform:rotate(-135deg)}
+.pinfo details p,.pinfo details li{color:var(--mute);font-size:15px;padding-bottom:14px}
+.pinfo details ul{list-style:none;padding:0}
+.pinfo details a{color:var(--gold);text-decoration:underline}
+.rel{padding:0;margin:64px 0 28px;font-size:clamp(24px,2.6vw,34px);letter-spacing:.22em;text-transform:uppercase}
+.sbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--bg);border-top:1px solid var(--line);padding:12px 5vw;display:flex;justify-content:space-between;align-items:center;gap:18px;transform:translateY(110%);transition:transform .3s;box-shadow:0 -10px 30px rgba(0,0,0,.08)}
+.sbar.show{transform:none}
+.sbar b{display:block;font:500 20px "Cormorant Garamond",Georgia,serif;letter-spacing:.05em}
+.sbar span{color:var(--gold)}
+.sbar .buy{width:auto;padding:13px 30px;flex:none}
+@media(max-width:900px){.pmainw img{height:auto;max-height:78vh;aspect-ratio:auto;object-fit:contain}.pgrid{grid-template-columns:1fr;gap:16px}.thumbs{flex-direction:row;order:2}.th{width:72px}.pmainw{order:1}.pinfo{order:3}.sbar b{font-size:17px}.sbar .buy{padding:12px 18px;font-size:12px}}
+.pic img{width:100%;height:100%;object-fit:cover;display:block}
+.pmainw img{height:auto;max-height:min(82vh,860px);object-fit:contain}
+.th img{aspect-ratio:1;object-fit:cover}
+.has>a.ig{padding:5px 0 17px;display:flex;align-items:center}.ig svg{width:20px;height:20px}.has>a.ig:hover{color:var(--gold)}
+@media(max-width:760px){.has>a.ig{padding:8px 4px 12px}}
+.cores{margin:14px 0 4px}.cores small{color:var(--mute);letter-spacing:.14em;text-transform:uppercase;font-size:12px}.cores b{font-weight:400;color:var(--ink);letter-spacing:.06em;text-transform:none;font-size:14px;margin-left:4px}
+.sws{display:flex;gap:12px;margin-top:10px}
+.swb{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:radial-gradient(circle at 35% 30%,#fff,var(--c));cursor:pointer;padding:0;outline:2px solid transparent;outline-offset:3px;transition:outline-color .2s}
+.swb:hover{outline-color:var(--line)}.swb.on{outline-color:var(--ink)}
+.dots{display:flex;gap:6px;margin:2px 0 6px}.dots i{width:12px;height:12px;border-radius:50%;border:1px solid var(--line);background:radial-gradient(circle at 35% 30%,#fff,var(--c))}
+
+.tamb{display:inline-flex;flex-direction:column;align-items:center;gap:2px;min-width:78px;padding:9px 16px;border:1px solid var(--line);background:transparent;color:inherit;font:inherit;cursor:pointer;transition:.2s}
+.tamb span{font-size:15px;letter-spacing:.14em}.tamb em{font-style:normal;color:var(--mute);font-size:13px}
+.tamb:hover{border-color:var(--ink)}.tamb.on{border-color:var(--ink);background:var(--ink);color:var(--bg)}.tamb.on em{color:inherit;opacity:.8}
+.dots.tams span{font-size:11px;letter-spacing:.14em;border:1px solid var(--line);padding:1px 7px;color:var(--mute)}
+.pinfo details p{white-space:pre-line}
+footer .adm{opacity:.55;font-size:13px}footer .adm:hover{opacity:1;color:var(--gold)}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <a class="l" href="https://wa.me/5511975502800" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg> <span>Falar no WhatsApp</span></a>
+    <a class="logo" href="#"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1c.6 6.4 4.6 10.4 11 11-6.4.6-10.4 4.6-11 11-.6-6.4-4.6-10.4-11-11C7.4 11.4 11.4 7.4 12 1z" fill="currentColor" stroke="none"/></svg> ALUÁ</a>
+    <a class="r" href="#sacola" id="bagBtn" aria-label="Abrir sacola"><svg viewBox="0 0 24 24"><path d="M6 8h12l1 12H5zM9 8V6a3 3 0 016 0v2"/></svg><span class="badge" id="badge" hidden>0</span></a>
+  </div>
+  <nav id="menu">
+    <div class="has"><a href="#categorias">Joias</a><div class="mega"><div class="mg"><div><h4>Destaques</h4><a href="#/t/lancamentos">Lançamentos</a><a href="#/t/vendidos">Mais vendidos</a><a href="#/t/presentes">Presentes</a></div><div><h4>Categorias</h4><a href="#/c/aneis">Anéis</a><a href="#/c/brincos">Brincos</a><a href="#/c/colares">Colares</a><a href="#/c/pingentes">Pingentes</a><a class="all" href="#/all">Ver todas</a></div><div><h4>Seleção especial</h4><a href="#/t/moissanite">Moissanite</a><a href="#/t/zirconia">Zircônia</a><a href="#/t/perolas">Pérolas</a><a href="#/t/classicos">Clássicos</a><a href="#/t/delicadas">Delicadas</a></div><div><h4>Metal</h4><a href="#/t/ouro"><u class="sw g"></u>Banho de ouro</a><a href="#/t/prata"><u class="sw s"></u>Banho de prata</a><a href="#/t/rose"><u class="sw r"></u>Ouro rosé</a><a href="#/t/duo"><u class="sw d"></u>Duo prata e ouro</a></div><a class="feat" href="#colecao"><span class="ph"><i></i></span><b>Seu brilho, sua essência</b><small>Delicadeza e elegância para o dia a dia.</small></a></div></div></div>
+    <div class="has"><a href="#/c/aliancas">Alianças</a><div class="mega"><div class="mg"><div><h4>Alianças</h4><a href="#/t/casamento">Casamento</a><a href="#/t/noivado">Noivado</a><a href="#/t/solitarios">Solitários</a><a class="all" href="#/c/aliancas">Ver todas</a></div><div><h4>Cuidados</h4><a href="#contato">Como limpar</a><a href="#contato">Garantia</a><a href="#contato">Trocas</a></div></div></div></div></div>
+    <div class="has"><a href="#contato">Contato</a></div>
+    <div class="has"><a class="ig" href="https://www.instagram.com/alua.semijoiass/" target="_blank" rel="noopener" aria-label="Instagram da Aluá Semijoias"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r=".7" fill="currentColor" stroke="none"/></svg></a></div>
+  </nav>
+</header>
+
+<div class="band"><span>Semijoias que iluminam você</span></div>
+
+<main id="home">
+<div class="hero">
+  <div class="slides" id="slides" role="region" aria-roledescription="carrossel" aria-label="Destaques da Aluá">
+    <div class="slide on" role="img" aria-label="Anel solitário com pedra sobre tecido rosado"></div>
+    <div class="slide" role="img" aria-label="Anel com pedras alinhadas sobre tecido rosado"></div>
+    <div class="slide" role="img" aria-label="Pulseira de zircônias sobre tecido rosado"></div>
+    <div class="sctl"><button type="button" id="sPrev" aria-label="Imagem anterior">‹</button><div class="dots" id="sDots"></div><button type="button" id="sNext" aria-label="Próxima imagem">›</button></div>
+  </div>
+  <div class="txt"><h1>Seu brilho, sua essência</h1><a href="#/all">Escolha a joia ideal</a></div>
+</div>
+
+<div class="strip"><span><b>Delicadeza</b>em cada detalhe</span><span><b>Moissanite</b>e zircônia</span><span><b>WhatsApp</b>atendimento direto</span></div>
+
+<section id="categorias">
+  <h2>Navegue por categoria</h2>
+  <div class="rail">
+    <a href="#/c/aneis"><div class="pic"><i></i></div><h3>Anéis e alianças</h3></a>
+    <a href="#/c/brincos"><div class="pic"><i class="d"></i></div><h3>Brincos</h3></a>
+    <a href="#/c/colares"><div class="pic"><i class="l"></i></div><h3>Colares</h3></a>
+    <a href="#/c/pingentes"><div class="pic"><i class="d"></i></div><h3>Pingentes</h3></a>
+  </div>
+</section>
+
+<section id="colecao">
+  <h2>Nossas peças</h2>
+  <div class="grid" id="homeGrid"></div>
+  <p class="more"><a href="#/all">Ver todas as peças</a></p>
+</section>
+
+</main>
+<main id="produto" hidden></main>
+<main id="loja" hidden>
+<section class="shop">
+  <p class="crumb"><a href="#">Início</a> <span>›</span> <b id="crumbNow"></b></p>
+  <h1 id="shopTitle"></h1>
+  <p class="count" id="shopCount"></p>
+  <div class="chips" id="chips"></div>
+  <div class="grid" id="shopGrid"></div>
+  <p class="empty" id="shopEmpty" hidden>Ainda não há peças aqui. Fale com a gente pelo WhatsApp e mostramos as novidades.</p>
+</section>
+</main>
+
+<div class="cta" id="contato">
+  <h2>Fale com a Aluá</h2>
+  <p>Catálogo, encomendas e dúvidas pelo WhatsApp.</p>
+  <a href="https://wa.me/5511975502800" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+</div>
+<footer><span>© 2026 Aluá Semijoias</span><a href="https://www.instagram.com/alua.semijoiass/" target="_blank" rel="noopener">@alua.semijoiass</a><a class="adm" href="admin.html">Acesso da loja</a></footer>
+<div class="ov" id="ov"></div>
+<aside class="cart" id="cart" role="dialog" aria-modal="true" aria-label="Sua sacola" aria-hidden="true">
+  <div class="cart-h"><h2>Sua sacola</h2><button type="button" class="x" data-close aria-label="Fechar sacola">×</button></div>
+  <div class="cart-b" id="cartItems"></div>
+  <div class="cart-f">
+    <div class="tot"><span>Total</span><b id="cartTotal">R$ 0</b></div>
+    <a class="buy solid" id="checkout" href="#sacola" target="_blank" rel="noopener">Finalizar pelo WhatsApp</a>
+    <button type="button" class="lnk" id="copy">Não abriu? Copiar pedido</button>
+    <button type="button" class="lnk" id="clear">Limpar sacola</button>
+    <p class="note">Você será levada(o) ao WhatsApp com o pedido pronto. Pagamento e entrega combinamos por lá.</p>
+  </div>
+</aside>
+<div class="sbar" id="sbar"><div><b id="sbName"></b><span id="sbPrice"></span></div><button type="button" class="buy solid" id="sbAdd" data-add="0">Adicionar à sacola</button></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="config.js"></script>
+<script>
+document.querySelectorAll('.has').forEach(function(h){var a=h.querySelector('a');if(!h.querySelector('.mega'))return;
+a.addEventListener('click',function(e){if(e.pointerType==='touch'||!matchMedia('(hover:hover) and (pointer:fine)').matches||innerWidth<=760){e.preventDefault();var o=h.classList.contains('open');document.querySelectorAll('.has.open').forEach(function(x){x.classList.remove('open')});if(!o)h.classList.add('open')}})});
+document.addEventListener('click',function(e){if(!e.target.closest('.has'))document.querySelectorAll('.has.open').forEach(function(x){x.classList.remove('open')})});
+document.querySelectorAll('.mega a').forEach(function(a){a.addEventListener('click',function(){document.querySelectorAll('.has.open').forEach(function(x){x.classList.remove('open')})})});
+
+function startStore(DBROWS){
+var CATS={aneis:'Anéis',aliancas:'Alianças',brincos:'Brincos',colares:'Colares',pingentes:'Pingentes'};
+var TAGS={lancamentos:'Lançamentos',vendidos:'Mais vendidos',presentes:'Presentes',moissanite:'Moissanite',zirconia:'Zircônia',perolas:'Pérolas',classicos:'Clássicos',delicadas:'Delicadas',ouro:'Banho de ouro',prata:'Banho de prata',rose:'Ouro rosé',duo:'Duo prata e ouro',casamento:'Casamento',noivado:'Noivado',solitarios:'Solitários'};
+var SHAPE={aneis:'',aliancas:'',brincos:'d',colares:'l',correntes:'l',pingentes:'d',pulseiras:''};
+/* PRODUTOS DE EXEMPLO: troque nomes, preços e tags pelos reais. foto: nome do arquivo da imagem (opcional) */
+var WA='5511975502800'; /* <-- SEU WHATSAPP: 55 + DDD + numero, so numeros */
+var STORE='Aluá Semijoias';
+function slug(n){return n.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+var RAW=[
+['Colar Triângulo Cravejado','colares',66,'Corrente de malha fina e acabamento polido','','Corrente delicada de malha fina e acabamento polido, equipada com um fecho de mola tradicional na parte posterior para maior segurança.'],
+['Colar Snake','colares',71,'Ouro amarelo, design espinha de peixe','classicos','Colar clássico em ouro amarelo com design plano e flexível do tipo espinha de peixe.'],
+['Colar Cravejado','colares',64,'Cravejado com zircônias','zirconia','Elegante colar cravejado ao longo de toda a sua extensão com zircônias.'],
+['Colar Geométrico Triângulos com Pedras','colares',67,'Triângulos cravejados com pedras de brilho intenso','','Design moderno e arquitetônico com triângulos cravejados em pedras de brilho intenso. O toque de sofisticação e elegância ideal para destacar qualquer visual.'],
+['Colar de Corrente Fina com Pedras Coloridas','colares',66,'Corrente fina dourada com pedras coloridas','','Colar delicado de corrente fina dourada com pequenas pedras redondas coloridas penduradas ao longo da extensão (verdes, azuis, amarelas e incolores). Uma peça alegre, moderna e versátil, perfeita para trazer um ponto de cor ao visual ou para combinar em camadas.'],
+['Colar Estrela com Pedras Pendentes','colares',53,'Corrente fina dourada com pendente de estrela','','Design delicado de corrente fina com pendente em forma de estrela e pedras brilhantes penduradas ao longo da extensão. Uma peça leve e charmosa, perfeita para usar no dia a dia ou criar composições.'],
+['Colar Elos Ovais Cravejados e Esmaltados','colares',79,'Elos ovais cravejados e esmaltados em preto','','Design moderno e marcante com elos ovais interligados ao longo da corrente fina. Alterna elos totalmente cravejados em pedras brilhantes com elo de acabamento esmaltado preto. Uma peça sofisticada, elegante e cheia de personalidade.'],
+['Corrente com Elos Trabalhados em Textura','colares',49,'Elos redondos em baixo-relevo radial','','Design marcante e luminoso com elos redondos trabalhados em baixo-relevo radial que refletem a luz de forma única. Uma peça robusta e elegante, perfeita para usar a solo ou em combinações de destaque.'],
+['Colar em Malha Tubelar Prateada','colares',78,'Malha tubelar prateada estilo snake','','Design imponente e fluido em malha tubelar estilo snake (espinha de peixe) com brilho espelhado e textura suave. Uma peça versátil e moderna, perfeita para usar a solo como protagonista do look ou em composições sofisticadas.'],
+['Colar Corrente Corações Vazados Pendentes','colares',73,'Corrente fina com pequenos corações vazados','','Design romântico e delicado em corrente fina adornada com pequenos corações vazados ao longo da sua extensão. Uma joia leve, elegante e versátil, ideal para trazer um toque de charme ao dia a dia ou para criar composições.'],
+['Colar Flores Cravejadas','colares',86,'Flores cravejadas com zircônias e pendente pera','zirconia','Design elegante e brilhante composto por motivos florais cravejados de zircônias e um pendente central em corte pera. Uma peça sofisticada e graciosa, perfeita para ocasiões especiais ou para iluminar o visual do dia a dia.'],
+['Colar Aros','colares',75,'Pendentes circulares com pontos de luz em zircônias','zirconia','Design contemporâneo e elegante que combina pendentes circulares minimalistas com delicados pontos de luz em zircônias ao longo da corrente fina. Uma peça versátil e moderna, ideal para dar um toque de sofisticação a qualquer visual.'],
+['Colar Estrelas com Brilho Deslumbrante','colares',69,'Corrente delicada com estrelas e estrela central cravejada de zircônias','zirconia','Design moderno e celestial composto por uma corrente delicada adornada com pendentes em forma de estrela, destacando-se a estrela central totalmente cravejada de zircônias. Uma peça sofisticada e elegante, perfeita para iluminar qualquer visual.'],
+['Colar Solitário Ponto de Luz Redondo','colares',42,'Corrente de prata fina com solitário de zircônia','zirconia','Design clássico e atemporal em corrente de prata fina, destacando um elegante pendente circular central com cravação em garras que maximiza o brilho da zircônia. Uma peça sofisticada, indispensável em qualquer coleção e perfeita para uso diário ou ocasiões especiais.'],
+['Colar Cascata de Estrelas em Prata','colares',69,'Prata de lei com estrelas e estrela central cravejada de zircônias','zirconia','Delicado colar em prata de lei com pendentes em forma de estrela, realçado por uma estrela central totalmente cravejada de zircônias. Um design elegante e versátil que ilumina qualquer visual com um toque sofisticado.'],
+['Colar Nossa Senhora com Zircônias em Prata','colares',59,'Prata de lei com pendente de Nossa Senhora cravejado de zircônias','zirconia','Delicado colar em prata de lei com um pendente em formato de Nossa Senhora, totalmente cravejado de zircônias brilhantes. Uma peça de devoção e elegância refinada, perfeita para carregar significado e iluminar o visual com sofisticação.'],
+['Colar Dourado com Pendente','colares',52,'Corrente dourada com pendente em pera de madrepérola','','Delicado colar em tom dourado com um pendente em formato de pera, adornado com madrepérola luminosa. Uma peça sofisticada e elegante, perfeita para adicionar um toque de charme clássico e brilho sutil ao seu visual diário.'],
+['Colar Solitário Ponto de Luz Dourado','colares',42,'Acabamento dourado com solitário de zircônia','zirconia','Elegante colar em acabamento dourado com um pendente solitário em corte redondo, cravado com uma zircônia de brilho intenso. Uma peça clássica, sofisticada e indispensável para iluminar qualquer visual com um toque de requinte.'],
+['Corrente Rope Dourada','colares',49,'Corrente dourada com design torcido tipo rope','','Clássica e elegante corrente em tom dourado com design torcido tipo rope. Uma peça versátil com excelente brilho, perfeita para usar sozinha em um estilo minimalista ou combinada com outros colares.'],
+['Colar Dourado LOVE com Zircônias e Pingentes','colares',79,'Letras LOVE com microzircônias e pingentes em gota','zirconia','Charmoso colar em acabamento dourado com letras espaçadas que formam a palavra "LOVE", adornadas com microzircônias e delicados pendentes em forma de gota. Uma peça romântica, moderna e cheia de significado para elevar qualquer visual.'],
+['Colar Corrente com Zircônias Navete em Prata','colares',88,'Prata com zircônias em lapidação navete (marquise)','zirconia','Delicado colar em prata com pedras de zircônia em lapidação navete (marquise) dispostas espaçadamente ao longo da corrente. Uma peça fluida e luminosa, perfeita para usar sozinha com sofisticação ou criar composições em camadas.'],
+['Colar Cluster de Corações Prata','colares',62,'Acabamento prata com aglomerado de zircônias em coração','zirconia','Delicado colar com acabamento prata adornado com um pendente composto por um aglomerado de zircônias em forma de coração. Uma joia romântica, brilhante e sofisticada, perfeita para iluminar qualquer momento especial.'],
+['Colar Gravatinha Dourado com Zircônias em Pera','colares',47,'Acabamento dourado, gravatinha (Y) com zircônias em pera','zirconia','Sofisticado colar em acabamento dourado com design em formato gravatinha (Y), adornado com delicadas zircônias com lapidação em pera. Uma peça fluida e elegante, ideal para valorizar decotes e conferir um brilho marcante a qualquer visual.'],
+['Colar Dourado de Flores','colares',56,'Acabamento dourado com pingentes em flor','','Delicado e sofisticado, este colar dourado apresenta pequenos pingentes em formato de flor com detalhes brilhantes no centro. Uma peça elegante e versátil, perfeita para valorizar o visual com um toque de charme e feminilidade.'],
+['Colar Coração Dourado','colares',52,'Acabamento dourado com pingente de corações entrelaçados','','Elegante e romântico, este colar dourado apresenta um delicado pingente de corações entrelaçados, adornado com pedras brilhantes que realçam sua sofisticação. Uma joia atemporal, perfeita para presentear alguém especial ou complementar seu visual com charme e delicadeza.'],
+['Colar Árvore da Vida com Corações e Pedras Coloridas','colares',64,'Pendente de árvore com corações vazados e pedras coloridas','','Design encantador e cheio de significado em corrente delicada, com um pendente em forma de árvore cujos ramos e folhas são compostos por corações vazados cravejados com pedras coloridas. Uma joia vibrante e elegante, ideal para simbolizar afeto e dar cor ao dia a dia.'],
+['Colar de Três Esferas Lisas em Tom Dourado','colares',46,'Acabamento dourado polido com três esferas lisas','','Elegante colar com acabamento dourado polido, destacado por contas esféricas totalmente lisas e harmoniosamente distribuídas. Uma peça minimalista, sofisticada e atemporal, perfeita para adicionar um brilho sutil e refinado a qualquer look.'],
+['Brinco Círculo Sol de Madrepérola','brincos',46,'Brinco em ouro com centro de madrepérola e pedras brilhantes','ouro lancamentos','Sublime e sofisticado, este brinco em ouro apresenta um centro reluzente de madrepérola rodeado por uma cravação delicada de pedras brilhantes, criando um reflexo de luz único e refinado. Uma joia atemporal e marcante, perfeita para elevar qualquer produção com a elegância do luxo contemporâneo.'],
+["Brinco Flor de Pedra Rosa","brincos",49,"Brinco em prata com pedra rosa central e auréola de zircônias","prata zirconia","Delicado e feminino, este brinco em prata apresenta uma pedra central em tom rosa suave envolvida por uma auréola brilhante de zircônias. Uma joia graciosa e elegante, perfeita para adicionar um toque de cor e brilho discreto ao seu visual diário ou a uma ocasião especial."],
+["Brinco Gota Aquamarine","brincos",49,"Brinco em prata com gema em gota azul aquamarine e zircônias","prata zirconia","Elegante e sofisticado, este brinco em prata apresenta uma gema em formato de gota em tom azul aquamarine, cercada por uma delicada cravação de zircônias brilhantes. Uma joia clássica e marcante, perfeita para adicionar um toque de cor refinado e muita classe ao seu visual."],
+["Brinco Ponto de Ouro Clássico","brincos",29,"Brinco em ouro com esfera lisa e acabamento polido","ouro classicos","Minimalista e essencial, este brinco em ouro com acabamento perfeitamente polido apresenta o clássico design de esfera lisa. Uma joia versátil e sofisticada, ideal para iluminar o visual com elegância discreta em qualquer ocasião."],
+["Brinco Espírito Santo Ouro","brincos",42,"Brinco em ouro em formato de pomba com zircônias","ouro zirconia","Delicado e repleto de significado, este brinco em ouro em formato de pomba traz uma cravação brilhante de zircônias que realça sua delicadeza. Uma joia elegante e atemporal, perfeita para demonstrar fé e carinho com muito charme e sofisticação no dia a dia."],
+["Brinco Gota Lavanda","brincos",49,"Brinco em prata com gema em gota lavanda e zircônias","prata zirconia","Delicado e sofisticado, este brinco em prata apresenta uma gema em formato de gota em tom lavanda suave, cercada por uma delicada cravação de zircônias brilhantes. Uma joia clássica e marcante, perfeita para adicionar um toque de cor refinado e muita classe ao seu visual."],
+["Brinco Coração Cravejado","brincos",36,"Brinco em ouro em formato de coração cravejado de zircônias","ouro zirconia presentes","Elegante e romântico, este brinco em ouro apresenta o formato delicado de um coração totalmente pavé-set com zircônias brilhantes que realçam sua sofisticação. Uma joia atemporal, perfeita para presentear alguém especial ou complementar seu visual com charme e delicadeza."],
+["Brincos Trevo Duplo em Ouro Amarelo","brincos",51,"Brincos em ouro amarelo com trevos sobrepostos e detalhes cravados","ouro","Delicados, charmosos e repletos de significado, estes brincos em ouro amarelo trazem o design encantador de trevos sobrepostos com detalhes cravados que capturam a luz de forma sutil. Uma peça versátil e elegante, perfeita para acrescentar um toque de sorte e sofisticação ao estilo do dia a dia."],
+["Brinco Quadrado Cravejado","brincos",39.9,"Brinco quadrado cravejado de zircônias, brilho intenso","prata zirconia classicos","Brinco quadrado cravejado em zircônias. Design clássico, brilho intenso e versatilidade para usar sozinhos ou em composição. O toque de elegância que faltava no seu porta-joias."],
+["Brinco Argola Corações","brincos",28,"Argola com dois corações entrelaçados e fecho em clique","prata presentes","Celebre o amor e a elegância atemporal com o Brinco Argola Corações. Com um design moderno e altamente sofisticado, esta peça traz dois corações delicadamente entrelaçados em formato de argola com fecho em clique, garantindo conforto, praticidade e segurança ao usar."],
+["Brinco Coração Radiante","brincos",36,"Argola individual com pendente de coração em raios de luz","ouro","Delicado, moderno e cheio de brilho. Este brinco de argola individual traz um pendente em formato de coração com acabamento trabalhado em raios de luz, garantindo um toque de sofisticação e estilo único. Perfeito para usar sozinho, criar composições no segundo/terceiro furo ou combinar com o seu ear cuff favorito. Banhado a ouro com acabamento de alta joalheria."],
+["Brinco Eos Duplo Brilliance","brincos",44,"Brinco dourado com pontos de luz em dois níveis","ouro","Sofisticação em dose dupla. O Brinco Eos Duplo Brilliance combina a precisão da lapidação premium com linhas minimalistas para criar um efeito radiante de pontos de luz em dois níveis. Seu design ergonômico abraça o lóbulo com elegância, proporcionando o equilíbrio perfeito entre o luxo clássico e a joalheria moderna."],
+["Brinco Argola Prata","brincos",24,"Argola lisa em prata para o dia a dia","prata classicos","Uma peça atemporal, ideal para composições versáteis e sofisticadas no dia a dia ou em ocasiões especiais."],
+["Trio de Argolas Douradas","brincos",66,"Conjunto de três argolas douradas minimalistas","ouro","Elegância atemporal em um conjunto de três argolas douradas. Versátil e sofisticado, este trio com design minimalista é perfeito para composições modernas ou para adicionar um toque de luxo discreto ao visual do dia a dia."],
+["Par de Argolas Brilhantes","brincos",41,"Par de argolas em prata com zircônias","prata zirconia classicos","Elegância e brilho na medida certa. Este par de argolas em prata com cravação delicada de zircônias oferece um visual sofisticado e versátil, ideal para iluminar produções cotidianas com um toque clássico de alta joalheria."],
+["Par de Argolas Royal Gold","brincos",36,"Par de argolas folheadas a ouro com zircônias","ouro zirconia","Com um design imponente e sofisticado, este par de argolas folheadas a ouro destaca-se pela cravação rica e detalhada em zircônias. Uma peça de alto padrão e brilho incomparável, perfeita para elevar produções elegantes com o verdadeiro charme da alta joalheria."],
+["Brinco Solitário Prata","brincos",89.9,"Solitário em prata com gema de lapidação brilhante","prata classicos","Clássico, elegante e atemporal, este brinco solitário em prata com gema de lapidação brilhante é o toque de sofisticação essencial para qualquer ocasião. Com cravação delicada que maximiza a entrada de luz na pedra, destaca-se pelo brilho intenso e acabamento nobre, garantindo elegância e conforto para uso diário ou eventos especiais.","brinco-solitario","Prata","#c9c9cf"],
+["Brinco Solitário Dourado","brincos",89.9,"Solitário dourado com gema de lapidação brilhante","ouro classicos","Clássico, elegante e atemporal, este brinco solitário em dourado com gema de lapidação brilhante é o toque de sofisticação essencial para qualquer ocasião. Com cravação delicada que maximiza a entrada de luz na pedra, destaca-se pelo brilho intenso e acabamento nobre, garantindo elegância e conforto para uso diário ou eventos especiais.","brinco-solitario","Dourado","#d4b05c"],
+["Par de Argolas — Tamanho P","brincos",38,"Par de argolas em ouro com acabamento polido e detalhes texturizados","ouro","Uma peça deslumbrante que une o brilho intenso do acabamento polido a delicados detalhes texturizados que capturam a luz de forma única. Estas argolas em ouro combinam sofisticação e modernidade, sendo o acessório perfeito para elevar qualquer produção com um toque de elegância marcante.","par-de-argolas","P",""],
+["Par de Argolas — Tamanho G","brincos",40,"Par de argolas em ouro com acabamento polido e detalhes texturizados","ouro","Uma peça deslumbrante que une o brilho intenso do acabamento polido a delicados detalhes texturizados que capturam a luz de forma única. Estas argolas em ouro combinam sofisticação e modernidade, sendo o acessório perfeito para elevar qualquer produção com um toque de elegância marcante.","par-de-argolas","G",""],
+["Brinco de Pérolas","brincos",14.9,"Brinco de pérola com lustre suave e acabamento delicado","perolas classicos","O clássico indispensável em qualquer porta-joias. Com lustre suave e acabamento delicado, este brinco traz o charme atemporal da pérola para iluminar o visual com sofisticação discreta."]
+];
+var P;
+if(DBROWS){P=DBROWS.map(function(r,i){return{i:i,s:r.slug,n:r.nome,c:r.categoria,p:+r.preco,d:r.descricao_curta||'',t:r.tags||[],l:r.descricao||'',g:r.grupo||'',cor:r.variacao||'',hex:r.hex||'',fotos:(r.fotos&&r.fotos.length)?r.fotos:undefined}})}
+else{P=RAW.map(function(p,i){return{i:i,s:slug(p[0]),n:p[0],c:p[1],p:p[2],d:p[3],t:p[4].split(' '),l:p[5]||'',g:p[6]||'',cor:p[7]||'',hex:p[8]||''}})}
+/* variações de cor: o primeiro de cada grupo aparece nas listas; os outros só pela escolha de cor */
+(function(){var seen={};P.forEach(function(p){if(p.g){if(seen[p.g])p.h=true;else seen[p.g]=1}})})();
+function irmaos(p){return p.g?P.filter(function(x){return x.g===p.g}):[]}
+/* FOTOS: slug do produto -> lista de imagens */
+var IMG={'brinco-de-perolas':["imagens/726cd31874.jpg", "imagens/b8b7b0b103.jpg", "imagens/fa3f284578.jpg"],'par-de-argolas-tamanho-p':["imagens/139cf1f0ec.jpg", "imagens/1a1caee36d.jpg", "imagens/8e0c3c83d5.jpg"],'brinco-solitario-prata':["imagens/a29a74d16b.jpg", "imagens/d58178c0b0.jpg", "imagens/c690d8e92a.jpg"],'brinco-solitario-dourado':["imagens/c4e6bec4c6.jpg", "imagens/f172bd5462.jpg", "imagens/252d30ab1f.jpg"],'brinco-flor-de-pedra-rosa':["imagens/6dc5171476.jpg", "imagens/e9b0adfd7d.jpg", "imagens/345d6c8da7.jpg"],'brinco-gota-aquamarine':["imagens/8e688797b6.jpg", "imagens/cea82a5978.jpg", "imagens/4546ea41ee.jpg"],'brinco-ponto-de-ouro-classico':["imagens/f74109d461.jpg", "imagens/b3ee76c240.jpg", "imagens/e2fb75cf78.jpg"],'brinco-espirito-santo-ouro':["imagens/c821feace3.jpg", "imagens/f0201e98f6.jpg", "imagens/8a7a5737c3.jpg"],'brinco-gota-lavanda':["imagens/62749541fc.jpg", "imagens/b9ad1891b4.jpg", "imagens/1b38efe987.jpg"],'brinco-coracao-cravejado':["imagens/770afca62c.jpg", "imagens/57d778eacf.jpg", "imagens/d1c758b301.jpg"],'brincos-trevo-duplo-em-ouro-amarelo':["imagens/c50a4e6636.jpg", "imagens/c14e9df94a.jpg"],'brinco-quadrado-cravejado':["imagens/96f6e42abf.jpg", "imagens/872b31b412.jpg", "imagens/30100f60ff.jpg"],'brinco-argola-coracoes':["imagens/ba7c142acd.jpg", "imagens/aae461bfdf.jpg", "imagens/3df537fe6c.jpg"],'brinco-coracao-radiante':["imagens/e01b0fa234.jpg", "imagens/0a1d373a33.jpg", "imagens/691a6ce91c.jpg"],'brinco-eos-duplo-brilliance':["imagens/975b2a7bd4.jpg", "imagens/8f86c650c8.jpg"],'brinco-argola-prata':["imagens/36b0270021.jpg", "imagens/734c085523.jpg", "imagens/9428bee57c.jpg"],'trio-de-argolas-douradas':["imagens/e8df388184.jpg", "imagens/a67d8b0a34.jpg", "imagens/0177efd2ef.jpg"],'par-de-argolas-brilhantes':["imagens/d1a5e2d4ab.jpg", "imagens/b49334d816.jpg", "imagens/de47343453.jpg"],'par-de-argolas-royal-gold':["imagens/2769624d6e.jpg", "imagens/f1ba032beb.jpg"],'brinco-circulo-sol-de-madreperola':['imagens/654da33624.jpg', 'imagens/3b138561e9.jpg', 'imagens/2e27815fe3.jpg'],'colar-triangulo-cravejado':['imagens/db89f186ca.jpg','imagens/07633733bd.jpg','imagens/676a3bb27f.jpg'],'colar-snake':['imagens/3f52f90806.jpg','imagens/9c3b1e7320.jpg','imagens/1a92c8a48a.jpg'],'colar-cravejado':['imagens/733b8d08d8.jpg','imagens/f08c290707.jpg','imagens/edc5326c7d.jpg'],'colar-geometrico-triangulos-com-pedras':['imagens/4fc10a13c9.jpg','imagens/d6c991e408.jpg','imagens/66366dfb79.jpg'],'colar-de-corrente-fina-com-pedras-coloridas':['imagens/35004c229d.jpg','imagens/aa4522c405.jpg','imagens/606bffa8f9.jpg'],'colar-estrela-com-pedras-pendentes':['imagens/2df1aac2aa.jpg','imagens/1c686dfcac.jpg','imagens/b639963a18.jpg'],'colar-elos-ovais-cravejados-e-esmaltados':['imagens/351c87f171.jpg','imagens/f89e15461e.jpg','imagens/82a7046d57.jpg'],'corrente-com-elos-trabalhados-em-textura':['imagens/0090ea9300.jpg','imagens/b724e62aca.jpg','imagens/980c994fe7.jpg'],'colar-em-malha-tubelar-prateada':['imagens/dac2e738b1.jpg','imagens/edb31a5bd4.jpg','imagens/500020d589.jpg'],'colar-corrente-coracoes-vazados-pendentes':['imagens/6c466cced0.jpg','imagens/1965fc4026.jpg','imagens/d9bb41c1dd.jpg'],'colar-flores-cravejadas':['imagens/6eceb3e037.jpg','imagens/d56ad69083.jpg','imagens/5b9ce59284.jpg'],'colar-aros':['imagens/ae01152cf1.jpg','imagens/40ed0aa34a.jpg','imagens/87f1ee8f12.jpg'],'colar-estrelas-com-brilho-deslumbrante':['imagens/a634e315c2.jpg','imagens/1b63227101.jpg','imagens/833b11f43c.jpg'],'colar-solitario-ponto-de-luz-redondo':['imagens/95233dbc9c.jpg','imagens/ccb4141444.jpg'],'colar-cascata-de-estrelas-em-prata':['imagens/d3f93de37c.jpg','imagens/20c2360f15.jpg'],'colar-nossa-senhora-com-zirconias-em-prata':['imagens/c3ec9437df.jpg','imagens/ad433a9355.jpg','imagens/7b3cdc2248.jpg'],'colar-dourado-com-pendente':['imagens/5804d0a2f8.jpg','imagens/ea4bca5c85.jpg','imagens/5fba9982b8.jpg'],'colar-solitario-ponto-de-luz-dourado':['imagens/785f3405df.jpg','imagens/a831b13498.jpg','imagens/b73c927e3e.jpg'],'corrente-rope-dourada':['imagens/c34ece3201.jpg','imagens/f4a16fceb2.jpg','imagens/5b091079ef.jpg'],'colar-dourado-love-com-zirconias-e-pingentes':['imagens/1a434586eb.jpg','imagens/2a4c72df58.jpg','imagens/2872dfed84.jpg'],'colar-corrente-com-zirconias-navete-em-prata':['imagens/09b4fc0562.jpg','imagens/40cb6dd5e3.jpg','imagens/a839ce79ee.jpg'],'colar-cluster-de-coracoes-prata':['imagens/23a4b2ecb4.jpg','imagens/6df8059be9.jpg'],'colar-gravatinha-dourado-com-zirconias-em-pera':['imagens/19774769d1.jpg','imagens/4252776bc6.jpg','imagens/5f169d6751.jpg'],'colar-dourado-de-flores':['imagens/02d26cf98f.jpg','imagens/6772a01823.jpg'],'colar-coracao-dourado':['imagens/fff46680a7.jpg','imagens/dba9316664.jpg','imagens/48e57f7523.jpg'],'colar-arvore-da-vida-com-coracoes-e-pedras-coloridas':['imagens/d3c0b7c93e.jpg','imagens/1bc53c7c2e.jpg','imagens/463458457c.jpg'],'colar-de-tres-esferas-lisas-em-tom-dourado':['imagens/55ada6f9d2.jpg','imagens/60f1fcc46f.jpg']};
+IMG['par-de-argolas-tamanho-g']=IMG['par-de-argolas-tamanho-p'];
+if(!DBROWS)P.forEach(function(p){if(IMG[p.s])p.fotos=IMG[p.s]});
+var $=function(i){return document.getElementById(i)};
+function E(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function brl(v){return 'R$ '+v.toLocaleString('pt-BR',{minimumFractionDigits:v%1?2:0,maximumFractionDigits:2})}
+function dots(p){var g=irmaos(p);if(g.length<2)return '';
+  if(!p.hex)return '<div class="dots tams" aria-label="Tamanhos disponíveis">'+g.map(function(x){return '<span>'+E(x.cor)+'</span>'}).join('')+'</div>';
+  return '<div class="dots" aria-label="Cores disponíveis">'+g.map(function(x){return '<i style="--c:'+E(x.hex)+'" title="'+E(x.cor)+'"></i>'}).join('')+'</div>'}
+function ptxt(p){var g=irmaos(p);if(g.length<2)return brl(p.p);var mn=Math.min.apply(null,g.map(function(x){return x.p})),mx=Math.max.apply(null,g.map(function(x){return x.p}));return mn===mx?brl(mn):'A partir de '+brl(mn)}
+function card(p){
+  return '<article><a class="plink" href="#/p/'+p.s+'"><div class="pic">'+(p.fotos?'<img src="'+E(p.fotos[0])+'" alt="'+E(p.n)+'" loading="lazy">':'<i class="'+SHAPE[p.c]+'"></i>')+'</div><span class="tag">'+CATS[p.c]+'</span><div class="item"><h3>'+E(p.n)+'</h3><span class="price">'+ptxt(p)+'</span></div>'+dots(p)+'</a><p class="desc">'+E(p.d)+'</p><div class="acts"><button type="button" class="buy" data-add="'+p.i+'">Adicionar à sacola</button><a class="buy solid" target="_blank" rel="noopener" href="'+waUrl([line(p,1)],p.p)+'">Comprar agora</a></div></article>';
+}
+/* ---- sacola ---- */
+var cart=[];try{cart=JSON.parse(localStorage.getItem('alua_cart4')||'[]').map(function(x){var p=P.filter(function(z){return z.s===x.s})[0];return p&&x.q>0?{i:p.i,q:x.q}:null}).filter(Boolean)}catch(e){cart=[]}
+function save(){try{localStorage.setItem('alua_cart4',JSON.stringify(cart.map(function(x){return{s:P[x.i].s,q:x.q}})))}catch(e){}}
+function msgText(lines,total){return 'Olá! Quero fazer um pedido na '+STORE+':\n\n'+lines.join('\n')+'\n\nTotal: '+brl(total)}
+function waUrl(lines,total){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(msgText(lines,total))}
+function cartLines(){return cart.map(function(x){return line(P[x.i],x.q)})}
+function line(p,q){return '• '+q+'x '+p.n+' — '+brl(p.p)+(q>1?' cada':'')}
+function total(){return cart.reduce(function(a,x){return a+P[x.i].p*x.q},0)}
+function count(){return cart.reduce(function(a,x){return a+x.q},0)}
+function toast(m){var t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.h);toast.h=setTimeout(function(){t.classList.remove('on')},1800)}
+function draw(){
+  var n=count(),b=$('badge');b.hidden=n===0;b.textContent=n;
+  $('cartItems').innerHTML=cart.length?cart.map(function(x){var p=P[x.i];
+    return '<div class="ci"><div><h3>'+E(p.n)+'</h3><div class="u">'+brl(p.p)+' · '+CATS[p.c]+'</div><div class="qty"><button type="button" data-dec="'+x.i+'" aria-label="Diminuir">−</button><span>'+x.q+'</span><button type="button" data-inc="'+x.i+'" aria-label="Aumentar">+</button></div></div><div class="lt">'+brl(p.p*x.q)+'</div><span></span><button type="button" class="rm" data-rm="'+x.i+'">Remover</button></div>'}).join(''):'<p class="cart-e">Sua sacola está vazia.<br>Escolha uma peça para começar.</p>';
+  $('cartTotal').textContent=brl(total());
+  var ck=$('checkout');ck.href=cart.length?waUrl(cartLines(),total()):'#sacola';ck.classList.toggle('off',!cart.length);$('clear').hidden=!cart.length;$('copy').hidden=!cart.length;
+  save();
+}
+function add(i,q){q=q||1;var x=cart.filter(function(c){return c.i===i})[0];if(x)x.q+=q;else cart.push({i:i,q:q});draw();var b=$('badge');b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump');toast(P[i].n+' foi para a sacola')}
+function fb(t){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}a.remove()}
+function openCart(o){$('cart').classList.toggle('open',o);$('ov').classList.toggle('open',o);$('cart').setAttribute('aria-hidden',String(!o));if(o)$('cart').querySelector('.x').focus()}
+document.addEventListener('click',function(e){
+  var el=e.target.closest('[data-add],[data-pq],[data-th],[data-sw],[data-inc],[data-dec],[data-rm],[data-close],#bagBtn,#ov,#clear,#copy');if(!el)return;
+  var d=el.dataset;
+  if(el.id==='bagBtn'){e.preventDefault();openCart(true)}
+  else if(el.id==='ov'||'close' in d)openCart(false);
+  else if('add' in d)add(+d.add,+d.q||1);
+  else if('pq' in d){pq=Math.max(1,Math.min(10,pq+ +d.pq));pdpQty()}
+  else if('th' in d){pdpView(+d.th)}
+  else if('sw' in d){cur='#/p/'+d.sw;try{history.replaceState(null,'',cur)}catch(x){}showProduct(d.sw)}
+  else if('inc' in d){cart.filter(function(c){return c.i===+d.inc})[0].q++;draw()}
+  else if('dec' in d){var c=cart.filter(function(c){return c.i===+d.dec})[0];c.q--;if(c.q<1)cart=cart.filter(function(z){return z!==c});draw()}
+  else if('rm' in d){cart=cart.filter(function(c){return c.i!==+d.rm});draw()}
+  else if(el.id==='clear'){cart=[];draw()}
+  else if(el.id==='copy'){var tx=msgText(cartLines(),total());
+    var ok=function(){toast('Pedido copiado. Cole no WhatsApp: (11) 97550-2800')};
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(tx).then(ok,function(){fb(tx);ok()});else{fb(tx);ok()}}
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')openCart(false)});
+document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function(a){a.href=a.href.replace(/wa\.me\/\d+/,'wa.me/'+WA)});
+$('homeGrid').innerHTML=P.slice(0,4).map(card).join('');
+/* esconde do menu e da home categorias/seleções que ainda não têm peças */
+var KEEP=['brincos'];
+function hasRoute(h){var m=h.match(/^#\/(c|t)\/([\w-]+)$/);if(!m)return true;if(m[1]==='c'&&KEEP.indexOf(m[2])>-1)return true;return P.some(function(p){return m[1]==='c'?p.c===m[2]:p.t.indexOf(m[2])>-1})}
+(function(){
+  [].forEach.call(document.querySelectorAll('.mega a[href^="#/"],.rail a[href^="#/"]'),function(a){if(!hasRoute(a.getAttribute('href')))a.remove()});
+  [].forEach.call(document.querySelectorAll('.mega .mg > div'),function(c){if(!c.querySelector('a'))c.remove()});
+  [].forEach.call(document.querySelectorAll('nav > .has'),function(h){var top=h.querySelector(':scope > a:not(.ig)');if(top&&top.getAttribute('href').indexOf('#/')===0&&!hasRoute(top.getAttribute('href')))h.remove();else{var m=h.querySelector('.mega');if(m&&!m.querySelector('.mg > div'))m.remove()}});
+  [].forEach.call(document.querySelectorAll('.rail a'),function(a){var m=a.getAttribute('href').match(/#\/c\/(\w+)/);if(!m)return;var p=P.filter(function(x){return x.c===m[1]&&x.fotos})[0];if(p){var pic=a.querySelector('.pic');pic.innerHTML='<img src="'+E(p.fotos[0])+'" alt="'+CATS[m[1]]+'">'}});
+  var r=document.querySelector('.rail');if(r&&!r.children.length){var sec=document.getElementById('categorias');if(sec)sec.remove()}
+})();
+
+draw();
+function show(kind,key){
+  var list,title;
+  if(kind==='c'&&CATS[key]){list=P.filter(function(p){return p.c===key&&!p.h});title=CATS[key]}
+  else if(kind==='t'&&TAGS[key]){list=P.filter(function(p){return p.t.indexOf(key)>-1&&!p.h});title=TAGS[key]}
+  else {list=P.filter(function(p){return !p.h});title='Todas as peças';kind='all';key=''}
+  $('shopTitle').textContent=title;$('crumbNow').textContent=title;
+  $('shopCount').textContent=list.length+(list.length===1?' peça':' peças');
+  $('shopGrid').innerHTML=list.map(card).join('');
+  $('shopEmpty').hidden=list.length>0;$('shopCount').hidden=list.length===0;
+  var ch='<a href="#/all" class="'+(kind==='all'?'on':'')+'">Todas</a>';
+  Object.keys(CATS).filter(function(k){return KEEP.indexOf(k)>-1||P.some(function(p){return p.c===k})}).forEach(function(k){ch+='<a href="#/c/'+k+'" class="'+(kind==='c'&&key===k?'on':'')+'">'+CATS[k]+'</a>'});
+  $('chips').innerHTML=ch;
+  document.title=title+' · Aluá Semijoias';
+}
+var cur=location.hash||'';
+
+/* ---- página do produto ---- */
+var pq=1,curP=null,io=null;
+function pview(p,k){return p.fotos&&p.fotos[k]?'<img src="'+E(p.fotos[k])+'" alt="'+E(p.n)+'">':'<div class="pic"><i class="'+curP.views[k]+'"></i></div>'}
+function pdpView(k){if(!curP)return;$('pmain').innerHTML=pview(curP,k);[].forEach.call(document.querySelectorAll('.th'),function(b,j){b.classList.toggle('on',j===k);b.setAttribute('aria-current',j===k)})}
+function pdpQty(){$('pqn').textContent=pq;$('pAdd').dataset.q=pq;$('pNow').href=waUrl([line(curP,pq)],curP.p*pq)}
+function cores(p){var g=irmaos(p);if(g.length<2)return '';
+  if(!p.hex)return '<div class="cores"><small>Tamanho: <b>'+E(p.cor)+'</b></small><div class="sws" role="group" aria-label="Escolha o tamanho">'+g.map(function(x){return '<button type="button" class="tamb'+(x===p?' on':'')+'" data-sw="'+E(x.s)+'" aria-pressed="'+(x===p)+'"><span>'+E(x.cor)+'</span><em>'+brl(x.p)+'</em></button>'}).join('')+'</div></div>';
+  return '<div class="cores"><small>Cor: <b>'+E(p.cor)+'</b></small><div class="sws" role="group" aria-label="Escolha a cor">'+g.map(function(x){return '<button type="button" class="swb'+(x===p?' on':'')+'" data-sw="'+E(x.s)+'" style="--c:'+E(x.hex)+'" aria-label="'+E(x.cor)+'" aria-pressed="'+(x===p)+'" title="'+E(x.cor)+'"></button>'}).join('')+'</div></div>'}
+function showProduct(slugName){
+  var p=P.filter(function(x){return x.s===slugName})[0];if(!p)return false;
+  var pool=['','d','l'],ix=pool.indexOf(SHAPE[p.c]);p.views=pool.slice(ix).concat(pool.slice(0,ix));
+  curP=p;pq=1;
+  var n=p.fotos&&p.fotos.length?p.fotos.length:3,th='';
+  for(var k=0;k<n;k++)th+='<button type="button" class="th'+(k===0?' on':'')+'" data-th="'+k+'" aria-label="Ver imagem '+(k+1)+'">'+pview(p,k)+'</button>';
+  var bd='';if(p.t.indexOf('lancamentos')>-1)bd+='<span>Lançamento</span>';if(p.t.indexOf('vendidos')>-1)bd+='<span>Mais vendido</span>';
+  var tg=p.t.filter(function(t){return TAGS[t]}).map(function(t){return TAGS[t]}).join(', ');
+  var rel=P.filter(function(x){return x!==p&&x.c===p.c&&!x.h&&(!p.g||x.g!==p.g)});
+  P.filter(function(x){return x!==p&&x.c!==p.c&&!x.h&&x.t.indexOf('vendidos')>-1}).forEach(function(x){if(rel.length<4)rel.push(x)});
+  rel=rel.slice(0,4);
+  $('produto').innerHTML='<section class="pdp"><p class="crumb"><a href="#">Início</a> <span>›</span> <a href="#/c/'+p.c+'">'+CATS[p.c]+'</a> <span>›</span> <b>'+E(p.n)+'</b></p>'+
+  '<div class="pgrid"><div class="thumbs">'+th+'</div><div class="pmainw" id="pmain">'+pview(p,0)+'</div>'+
+  '<div class="pinfo"><a class="pcat" href="#/c/'+p.c+'">'+CATS[p.c]+'</a>'+(bd?'<div class="pbadges">'+bd+'</div>':'')+
+  '<h1 class="pname">'+E(p.n)+'</h1><p class="pprice">'+brl(p.p)+'</p><p class="pmat">'+E(p.d)+'</p>'+cores(p)+
+  '<div class="qrow"><small>Quantidade</small><div class="qty"><button type="button" data-pq="-1" aria-label="Diminuir">−</button><span id="pqn">1</span><button type="button" data-pq="1" aria-label="Aumentar">+</button></div></div>'+
+  '<div class="pbuy" id="pbuy"><button type="button" class="buy" id="pAdd" data-add="'+p.i+'" data-q="1">Adicionar à sacola</button><a class="buy solid" id="pNow" target="_blank" rel="noopener" href="'+waUrl([line(p,1)],p.p)+'">Comprar agora</a></div>'+
+  '<details open><summary>Descrição</summary><p>'+E(p.l||p.d+'. Peça da categoria '+CATS[p.c]+', da '+STORE+'.')+'</p></details>'+
+  '<details><summary>Detalhes</summary><ul><li>Categoria: '+CATS[p.c]+'</li><li>Características: '+E(p.d)+'</li>'+(tg?'<li>Seleção: '+tg+'</li>':'')+'</ul></details>'+
+  '<details><summary>Troca, garantia e cuidados</summary><p>Quer saber sobre garantia, troca ou cuidados com a peça? <a href="https://wa.me/'+WA+'" target="_blank" rel="noopener">Fale com a gente pelo WhatsApp</a>.</p></details>'+
+  '</div></div>'+
+  (rel.length?'<h2 class="rel">Veja também</h2><div class="grid">'+rel.map(card).join('')+'</div>':'')+'</section>';
+  $('sbName').textContent=p.n;$('sbPrice').textContent=brl(p.p);$('sbAdd').dataset.add=p.i;
+  document.title=p.n+' · '+STORE;
+  if(io)io.disconnect();
+  if('IntersectionObserver' in window){io=new IntersectionObserver(function(en){$('sbar').classList.toggle('show',!en[0].isIntersecting&&en[0].boundingClientRect.top<0)});io.observe($('pbuy'))}
+  return true;
+}
+function route(){
+  var m=cur.match(/^#\/(c|t|all|p)(?:\/([\w-]+))?$/),sb=$('sbar');
+  if(m){
+    var isP=m[1]==='p';
+    if(isP&&!showProduct(m[2])){isP=false;m=[0,'all','']}
+    $('home').hidden=true;$('loja').hidden=isP;$('produto').hidden=!isP;
+    if(!isP){show(m[1],m[2]);if(io){io.disconnect();io=null}sb.classList.remove('show')}
+    window.scrollTo(0,0);
+  }else{
+    $('home').hidden=false;$('loja').hidden=true;$('produto').hidden=true;sb.classList.remove('show');
+    if(io){io.disconnect();io=null}
+    document.title='Aluá Semijoias';
+    if(!cur||cur==='#')window.scrollTo(0,0);
+  }
+}
+function go(h){cur=h;try{history.pushState(null,'',h||'#')}catch(x){try{location.hash=h}catch(y){}}route()}
+document.addEventListener('click',function(e){
+  if(e.defaultPrevented)return;
+  var a=e.target.closest('a[href^="#"]');if(!a)return;
+  var h=a.getAttribute('href');e.preventDefault();
+  if(h==='#'||h.indexOf('#/')===0){go(h==='#'?'':h);return}
+  var t=document.getElementById(h.slice(1));if(!t)return;
+  if($('home').hidden&&t.closest('#home'))go('');
+  try{t.scrollIntoView({behavior:'smooth',block:'start'})}catch(x){t.scrollIntoView()}
+});
+function sync(){cur=location.hash||'';route()}
+window.addEventListener('hashchange',sync);window.addEventListener('popstate',sync);route();
+}
+
+/* ---- carrega os produtos do banco (Supabase). Se não der, usa a lista que vem no próprio arquivo ---- */
+function loadProducts(){
+  var C=window.ALUA_CONFIG||{};
+  if(!/^https:\/\//.test(C.SUPABASE_URL||'')||!C.SUPABASE_KEY||/^COLE_AQUI/.test(C.SUPABASE_KEY))return Promise.resolve(null);
+  var ctl=window.AbortController?new AbortController():null,to=setTimeout(function(){if(ctl)ctl.abort()},5000);
+  var url=C.SUPABASE_URL.replace(/\/+$/,'')+'/rest/v1/produtos?select=slug,nome,categoria,preco,descricao_curta,descricao,tags,fotos,grupo,variacao,hex&order=ordem.asc,criado_em.desc';
+  return fetch(url,{headers:{apikey:C.SUPABASE_KEY},signal:ctl?ctl.signal:undefined})
+    .then(function(r){if(!r.ok)throw new Error('http '+r.status);return r.json()})
+    .then(function(rows){clearTimeout(to);if(!Array.isArray(rows))throw new Error('formato');try{localStorage.setItem('alua_prod_cache',JSON.stringify(rows))}catch(e){}return rows})
+    .catch(function(){clearTimeout(to);try{var c=JSON.parse(localStorage.getItem('alua_prod_cache')||'null');if(Array.isArray(c))return c}catch(e){}return null});
+}
+loadProducts().then(startStore);
+
+(function(){
+var box=document.getElementById('slides');if(!box)return;
+var sl=[].slice.call(box.querySelectorAll('.slide')),dots=document.getElementById('sDots'),i=0,t=null,paused=false;
+sl.forEach(function(_,k){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Ir para a imagem '+(k+1));b.onclick=function(){go(k,true)};dots.appendChild(b)});
+function go(n,user){i=(n+sl.length)%sl.length;sl.forEach(function(s,k){s.classList.toggle('on',k===i)});[].forEach.call(dots.children,function(d,k){d.classList.toggle('on',k===i);d.setAttribute('aria-current',k===i)});if(user)restart()}
+function play(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;clearInterval(t);t=setInterval(function(){if(!paused&&!document.hidden)go(i+1)},5500)}
+function restart(){play()}
+document.getElementById('sPrev').onclick=function(){go(i-1,true)};
+document.getElementById('sNext').onclick=function(){go(i+1,true)};
+box.parentNode.addEventListener('mouseenter',function(){paused=true});box.parentNode.addEventListener('mouseleave',function(){paused=false});
+box.addEventListener('focusin',function(){paused=true});box.addEventListener('focusout',function(){paused=false});
+var x0=null;box.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+box.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(i+(dx<0?1:-1),true);x0=null},{passive:true});
+go(0);play();
+})();
+</script>
+</body>
+</html>
+
